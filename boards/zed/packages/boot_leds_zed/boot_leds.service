@@ -1,0 +1,11 @@
+[Unit]
+Description=Boot LED flashing
+Requires=pl_server.service
+After=pl_server.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/boot_leds.sh
+
+[Install]
+WantedBy=multi-user.target
