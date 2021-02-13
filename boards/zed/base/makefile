@@ -12,11 +12,5 @@ block_design:
 bitstream:
 	vivado -mode batch -source build_bitstream.tcl -notrace
 
-check_timing:
-	vivado -mode batch -source check_$(overlay_name).tcl -notrace
-
-dsa:
-	vivado -mode batch -source build_$(overlay_name)_dsa.tcl -notrace
-
 clean:
 	rm -rf $(overlay_name) *.jou *.log NA
