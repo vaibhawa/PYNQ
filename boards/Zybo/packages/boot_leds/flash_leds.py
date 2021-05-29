@@ -1,15 +1,16 @@
-#!/bin/env python3.6
+#! /usr/bin/env python3.6
 
+from pynq import Overlay
 from time import sleep
-from pynq import overlay
+from pynq.lib import AxiGPIO
 
-base = overlay.Overlay("base.bit")
+ol = Overlay('base.bit')
+leds = AxiGPIO(ol.ip_dict['axi_gpio_1']).channel1
 
-leds = [base.axi_gpio_led[i] for i in range(4)]
-
-# Toggle board LEDs leaving small LEDs lit
 for i in range(8):
-    [l.off() for l in leds]
-    sleep(.2)
-    [l.on() for l in leds]
-    sleep(.2)
+	leds[0:4].on()
+	sleep(.2)
+	leds[0:4].off()
+	sleep(.2)
+
+

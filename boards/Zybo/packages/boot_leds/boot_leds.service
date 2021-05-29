@@ -8,4 +8,4 @@ Type=oneshot
 ExecStart=/usr/local/bin/boot_leds.sh
 
 [Install]
-WantedBy=basic.target
+WantedBy=multi-user.target
